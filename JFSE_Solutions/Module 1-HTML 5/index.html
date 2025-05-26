@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Community Event Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      #welcomeBanner {
+        background-color: blue;
+        color: white;
+        padding: 20px;
+      }
+      .event-img {
+        border: 10px solid brown;
+      }
+    </style>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="help.html" target="_blank">Help</a></li>
+      </ul>
+    </nav>
+    <!--main-->
+    <!-- Welcome Banner -->
+    <div id="welcomeBanner">
+      <h1>Welcome to the Community Event Portal</h1>
+      <span class="highlight" style="color: red; font-weight: bold"
+        >Special Offer: First 100 registrants get free entry!</span
+      >
+    </div>
+    <!-- Event Gallery -->
+    <section id="events">
+      <h2>Event Gallery</h2>
+      <table>
+       <table>
+  <caption>Past Community Events</caption>
+
+        <tr>
+          <td>
+            <img
+              src="musicfest.jpg"
+              alt="Music Festival"
+              class="event-img"
+              title="Music Festival"
+              ondblclick="enlargeImage(this)"
+            />
+            <p style="text-align: center">music festival event</p>
+          </td>
+          <td>
+            <img
+              src="techmeetup.jpeg"
+              alt="Tech Meetup"
+              class="event-img"
+              title="Tech Meetup"
+              ondblclick="enlargeImage(this)"
+            />
+            <p style="text-align: center">Technology Meetup</p>
+          </td>
+          <td>
+            <img
+              src="sportsmeet.jpeg"
+              alt="Sports Day"
+              class="event-img"
+              title="Sports Day"
+              ondblclick="enlargeImage(this)"
+            />
+            <p style="text-align: center">sports Meetup</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="artfair.jpeg"
+              alt="Art Fair"
+              class="event-img"
+              title="Art Fair"
+              ondblclick="enlargeImage(this)"
+            />
+            <p style="text-align: center">Art fair</p>
+          </td>
+          <td>
+            <img
+              src="bookclub.jpeg"
+              alt="Book Club"
+              class="event-img"
+              title="Book Club"
+              ondblclick="enlargeImage(this)"
+            />
+            <p style="text-align: center">bookclub</p>
+          </td>
+          <td>
+            <img
+              src="codingbootcamp.jpg"
+              alt="Coding Bootcamp"
+              class="event-img"
+              title="Coding Bootcamp"
+              ondblclick="enlargeImage(this)"
+            />
+            <p style="text-align: center">coding Bootcamp</p>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Event Registration Form -->
+    <section id="registration">
+      <h2 style="text-align: center">Register for an Event</h2>
+      <form id="eventForm">
+        <label for="name">name:</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          required
+          autofocus
+        />
+        <br />
+        <label for="email">email:</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <br />
+        <label for="tele">ph-no:</label>
+        <input
+          id="tele"
+          type="tel"
+          name="phone"
+          placeholder="Enter your phone number"
+          onblur="validatePhone()"
+        />
+        <br />
+        <label for="eventType">Choose an event:</label>
+        <select name="eventType" id="eventType" onchange="updateEventFee()">
+          <option value="music">Music Festival ($20)</option>
+          <option value="tech">Tech Meetup ($30)</option>
+          <option value="sports">Sports Day ($15)</option>
+        </select>
+        <br />
+        <label for="date">Date:</label>
+        <input id="date" type="date" name="eventdate" /><br />
+        <label for="feedback">write down your thoughts..</label><br />
+        <textarea
+          id="feedback"
+          name="feedback"
+          placeholder="Your feedback..."
+          onkeydown="countCharacters()"
+        ></textarea>
+        <output id="confirmationMsg"></output>
+        <button type="submit" onclick="showConfirmation()">Register</button>
+      </form>
+    </section>
+
+    <!-- Video Invite -->
+    <section id="videoInvite">
+      <h2>Event Promo Video</h2>
+      <video controls oncanplay="videoReady()">
+        <source src="promo.mp4" type="video/mp4" alt="samplevedio" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Saving User Preferences -->
+    <section id="preferences">
+      <h2 style="text-align: center">Your Preferences</h2>
+      <button onclick="savePreferences()">Save Preferred Event</button>
+      <br />
+      <button onclick="clearPreferences()">Clear Preferences</button>
+    </section>
+
+    <!-- Geolocation -->
+    <section id="geolocation">
+           <button onclick="getLocation()">Find Nearby Events</button>
+           <p id="locationOutput"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Local Community Event Portal</p>
+    </footer>
+  </body>
+</html>
